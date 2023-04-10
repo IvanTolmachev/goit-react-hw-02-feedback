@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FeedBackList, FeedBackBtn } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -16,4 +17,14 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       ))}
     </FeedBackList>
   );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
